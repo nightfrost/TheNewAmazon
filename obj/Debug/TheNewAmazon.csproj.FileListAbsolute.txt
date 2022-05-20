@@ -16,3 +16,4 @@ C:\Users\Lucas\Documents\Visual Studio 2017\Projects\TheNewAmazon\TheNewAmazon\o
 C:\Users\Lucas\Documents\Visual Studio 2017\Projects\TheNewAmazon\TheNewAmazon\obj\Debug\TheNewAmazon.pdb
 C:\Users\Lucas\Documents\Visual Studio 2017\Projects\TheNewAmazon\TheNewAmazon\obj\Debug\TheNewAmazon.Properties.Resources.resources
 C:\Users\Lucas\Documents\Visual Studio 2017\Projects\TheNewAmazon\TheNewAmazon\obj\Debug\TheNewAmazon.csproj.GenerateResource.cache
+C:\Users\Lucas\Documents\Visual Studio 2017\Projects\TheNewAmazon\TheNewAmazon\obj\Debug\TheNewAmazon.csprojAssemblyReference.cache

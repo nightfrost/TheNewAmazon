@@ -20,6 +20,8 @@ namespace TheNewAmazon
             Dictionary<string, int> movieRecommendationsByUnitsSold = new Dictionary<string, int>();
             //Key: Movie Name, Value: Unit viewed amount.
             Dictionary<string, int> movieRecommendationsByUnitsViewed = new Dictionary<string, int>();
+            //Key: Movie name, Value: User Rating.
+            Dictionary<string, float> movieRecommendationsByUserRatings = new Dictionary<string, float>();
             //Key: User Name, Value: Movie recommendations.
             Dictionary<string, List<string>> movieRecommendationsByGenre = new Dictionary<string, List<string>>();
 
@@ -59,6 +61,15 @@ namespace TheNewAmazon
             {
                 Console.WriteLine($"Movie: {item.Key}, Viewed amount: {item.Value}");
             }
+            
+            //Get movie recommendations based on user ratings, and print to user.
+            movieRecommendationsByUserRatings = RecommendationHelper.ListOfRecommendedMoviesByUserRating(users, products);
+            Console.WriteLine("\n\nMovie recommendations based on user ratings:");
+            foreach (var item in movieRecommendationsByUserRatings.Take(4))
+            {
+                Console.WriteLine($"Movie: {item.Key}, user rating: {item.Value}");
+            }
+
             Console.ReadKey();
             Console.WriteLine("\n");
 

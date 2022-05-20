@@ -91,6 +91,26 @@ namespace TheNewAmazon.Operations
             return unitsViewed = sortedDict.ToDictionary(pair => pair.Key, pair => pair.Value);
         }
 
+        public static Dictionary<string, float> ListOfRecommendedMoviesByUserRating(List<User> users, List<Product> products)
+        {
+            Dictionary<string, float> moviesByRating = new Dictionary<string, float>();
+
+            foreach (Product product in products)
+            {
+                if (moviesByRating.Keys.Contains(product.name))
+                {
+                    moviesByRating[product.name] = product.rating;
+                }
+                else
+                {
+                    moviesByRating.Add(product.name, product.rating);
+                }
+            }
+
+            var sortedDict = from entry in moviesByRating orderby entry.Value descending select entry;
+            return moviesByRating = sortedDict.ToDictionary(pair => pair.Key, pair => pair.Value);
+        }
+
         /// <summary>
         /// Takes a list of users, products and currentUserSessions, and then creates a list of recommendations for the individual users.
         /// </summary>
