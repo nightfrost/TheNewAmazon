@@ -18,16 +18,32 @@ namespace TheNewAmazon.Models
         [Index(3)]
         public string purchasedProducts { get; set; }
 
+        public List<string> purchasedProductsSplit { get; set; }
+
         public User(int id, string name, string viewedProducts, string purchasedProducts)
         {
             this.id = id;
             this.name = name;
             this.viewedProducts = viewedProducts;
             this.purchasedProducts = purchasedProducts;
+            purchasedProductsSplit = convertPurchasedProductsToSplit(purchasedProducts);
         }
 
         public User()
         {
+        }
+
+        public List<string> convertPurchasedProductsToSplit(string viewedProducts)
+        {
+            List<string> returnList = new List<string>();
+
+            string[] values = purchasedProducts.Split(';');
+
+            foreach (string streng in values)
+            {
+                returnList.Add(streng);
+            }
+            return returnList;
         }
     }
 }

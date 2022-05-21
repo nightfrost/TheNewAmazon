@@ -189,5 +189,37 @@ namespace TheNewAmazon.Operations
 
             return recommendations;
         }
+
+
+        public static List<Product> ListOfRecommendedMoviesByUnitsSoldAndUserReviews(List<User> users, List<Product> products)
+        {
+            List<Product> moviesOnlyWithHighRating = new List<Product>();
+            List<Product> moviesWithUnitsSold = new List<Product>();
+
+            for (int y = 0; y < products.Count; y++)
+            {
+                if (products.ElementAt(y).rating > 3.5)
+                {
+                    moviesOnlyWithHighRating.Add(products.ElementAt(y));
+                }
+            }
+
+            users.ForEach(user =>
+            {
+                user.purchasedProductsSplit.ForEach(productId =>
+                {
+                    products.ForEach(product =>
+                    {
+                        if (productId.Equals(product.id))
+                        {
+                            moviesWithUnitsSold.Add(product);
+                        }
+                    });
+                });
+            });
+
+            List<Product> movieRecommendationList = moviesWithUnitsSold.Union(moviesOnlyWithHighRating).ToList();
+            return movieRecommendationList;
+        }
     }
 }
